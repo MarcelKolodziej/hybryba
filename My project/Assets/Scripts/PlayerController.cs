@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+    public Sprite[] sprites;
+
+    private int spriteIndex;
+
+
     public float strength = 5f;
     public float gravity = -9.81f;
     public float tilt = 5f;
 
     private Vector3 direction;
 
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();    
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
