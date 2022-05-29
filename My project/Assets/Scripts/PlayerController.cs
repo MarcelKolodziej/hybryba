@@ -55,4 +55,15 @@ public class PlayerController : MonoBehaviour
 
         spriteRenderer.sprite = sprites[spriteIndex];
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+            FindObjectOfType<GameMenagerScript>().GameOver(); // very expensive fo pc to use 
+        } else if (other.gameObject.tag == "Scoring")
+        {
+            FindObjectOfType<GameMenagerScript>().IncreseScore();
+        }
+    }
 }
